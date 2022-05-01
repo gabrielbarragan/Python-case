@@ -37,8 +37,10 @@ def numbers_to_ranges(number):
         41 :default()
     }
     for key in ranges_to_str.keys():
-        
-        print(number in key)
+        if type(key) == range:
+            print(number in key)
+        else:
+            print(number > key)
             
     #switch_example function
     #def switch_example(speed, ranges):

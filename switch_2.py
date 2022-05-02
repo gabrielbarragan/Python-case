@@ -27,29 +27,34 @@ def default():
 
 #numbers_to_ranges function
 def numbers_to_ranges(number):
+    rango_1 = range(0,20)
+    rango_2 = range(20,30)
+    rango_3 = range(30,40)
+    rango_4 = range(0,40)
+    ranges_list = [rango_1,rango_2,rango_3, rango_4]
 
-
-
-    ranges_to_str = {
-        range(0,20): one(),
-        range(20,30): second(),
-        range(30,40): third(),
-        41 :default()
-    }
-    for key in ranges_to_str.keys():
-        if type(key) == range:
-            print(number in key)
-        else:
-            print(number > key)
-            
     #switch_example function
-    #def switch_example(speed, ranges):
+    def switch_example(speed, ranges):
+        ranges_to_str = {
+        one(): speed in ranges[0],
+        second(): speed in ranges[1],
+        third(): speed in ranges[2],
+        default(): speed not in ranges[3],
+    }
+        
+        for key, value in ranges_to_str.items():
+            if value == True:
+                result = key
+        return result
+
+    return switch_example(number,ranges_list)
 
         
 
 #driver code
 
 #switch o case con número 37
+
 print(numbers_to_ranges(37) == "You are Third")
 #switch o case con número 10
 print(numbers_to_ranges(10) == "You are One")
